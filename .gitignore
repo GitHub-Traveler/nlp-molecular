@@ -1,0 +1,23 @@
+# # Ignore all .log files
+# *.log
+
+# # Ignore node_modules directory
+# node_modules/
+
+# # Ignore .env file
+# .env
+
+# # Ignore all .DS_Store files (common on macOS)
+# .DS_Store
+
+# # Ignore build directory
+# /build
+
+# # Ignore all files ending with .tmp
+# *.tmp
+
+# # Ignore specific files
+# secret.txt
+# config/database.yml
+
+datasets/
