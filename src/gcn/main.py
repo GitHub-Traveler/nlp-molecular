@@ -5,8 +5,8 @@ from torch.cuda import is_available as _cuda_available
 import hiv_gcn, utils
 
 if __name__ == "__main__":
-    device = 'cuda' if _cuda_available() else 'cpu'
-    num_epoch = 200
+    device = 'cuda:1' if _cuda_available() else 'cpu'
+    num_epoch = 300
 
     train_dataloader, test_dataloader = utils.load_dataloader()
     net = hiv_gcn.GraphConvNet(train_dataloader.dataset.num_features, 2)
