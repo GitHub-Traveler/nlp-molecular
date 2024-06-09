@@ -27,9 +27,9 @@ class GraphConvNet(_nn.Module):
         self.conv1 = self.ConvBlock(self.num_channel, 16)
         self.conv2 = self.ConvBlock(16, 32)
         self.conv3 = self.ConvBlock(32, 64)
-        print('wtf')
+        self.conv4 = self.ConvBlock(64, 128)
         self.linear_layers = _nn.Sequential(
-            _nn.Linear(64, 64),
+            _nn.Linear(128, 64),
             _nn.ReLU(),
             _nn.Linear(64, num_classes)
         )
@@ -39,6 +39,7 @@ class GraphConvNet(_nn.Module):
         hidden = self.conv1(x, edge_list)
         hidden = self.conv2(hidden, edge_list)
         hidden = self.conv3(hidden, edge_list)
+        hidden = self.conv4(hidden, edge_list)
         hidden = _geo_nn.global_mean_pool(hidden, batch)
         return self.linear_layers(hidden)
 
